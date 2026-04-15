@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuportBTWin | Suporte Mestre</title>
+    <style>
+      /* ==============================
+         Base visual alinhada à logo
+         ============================== */
+      :root {
+        --bg: #05070f;
+        --bg-2: #0b1226;
+        --card: #121a33;
+        --text: #edf1ff;
+        --muted: #b4bddc;
+        --blue: #2f6fff;
+        --blue-soft: #4ea0ff;
+        --gold: #d2a04b;
+        --gold-soft: #f2c76b;
+        --border: rgba(210, 160, 75, 0.22);
+        --shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+        --container: 1100px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        background:
+          radial-gradient(circle at 50% -15%, rgba(47, 111, 255, 0.2), transparent 35%),
+          radial-gradient(circle at 15% 0%, rgba(210, 160, 75, 0.16), transparent 30%),
+          linear-gradient(180deg, var(--bg-2), var(--bg));
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .container {
+        width: min(92%, var(--container));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: clamp(1.5rem, 2.8vw, 2rem);
+        margin-bottom: 12px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--muted);
+        max-width: 720px;
+        margin: 0 auto 34px;
+      }
+
+      /* ==============================
+         Header com logo centralizada
+         ============================== */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(78, 160, 255, 0.2);
+        background: rgba(5, 7, 15, 0.86);
+        backdrop-filter: blur(8px);
+      }
+
+      .header-inner {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand {
+        text-align: center;
+      }
+
+      .brand-logo {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid rgba(210, 160, 75, 0.55);
+        box-shadow:
+          0 0 0 3px rgba(47, 111, 255, 0.22),
+          0 8px 20px rgba(0, 0, 0, 0.4);
+        margin: 8px auto 10px;
+        display: block;
+        background: #0f172e;
+      }
+
+      .brand-name {
+        font-size: 1.6rem;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+      }
+
+      .brand-name span {
+        background: linear-gradient(90deg, var(--gold-soft), var(--gold), var(--blue-soft));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .brand-tagline {
+        color: #d9e5ff;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        font-size: 0.83rem;
+        margin-top: 3px;
+      }
+
+      /* ==============================
+         Hero
+         ============================== */
+      .hero {
+        padding: 58px 0 64px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.85rem, 5vw, 3rem);
+        line-height: 1.2;
+        max-width: 860px;
+        margin: 0 auto 16px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 700px;
+        margin: 0 auto 30px;
+      }
+
+      /* ==============================
+         Botões
+         ============================== */
+      .btn {
+        display: inline-block;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 22px;
+        font-weight: 700;
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background: linear-gradient(100deg, var(--blue), #3156d9 55%, #6b4bd4);
+        box-shadow: 0 10px 24px rgba(47, 111, 255, 0.34);
+      }
+
+      .btn-outline {
+        color: var(--gold-soft);
+        border: 1px solid rgba(210, 160, 75, 0.56);
+        background: rgba(210, 160, 75, 0.06);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.05);
+      }
+
+      /* ==============================
+         Produtos
+         ============================== */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        background: linear-gradient(160deg, rgba(18, 26, 51, 0.98), rgba(9, 14, 28, 0.96));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .card h3 {
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+      }
+
+      .price {
+        color: var(--gold-soft);
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      /* ==============================
+         Prova social
+         ============================== */
+      .feedback-list {
+        list-style: none;
+        max-width: 760px;
+        margin: 0 auto;
+        display: grid;
+        gap: 12px;
+      }
+
+      .feedback-list li {
+        background: rgba(13, 20, 40, 0.9);
+        border: 1px solid rgba(78, 160, 255, 0.24);
+        border-left: 4px solid var(--gold);
+        border-radius: 12px;
+        padding: 14px 16px;
+      }
+
+      /* ==============================
+         Comunidade
+         ============================== */
+      .community-box {
+        text-align: center;
+        padding: 30px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(210, 160, 75, 0.42);
+        background:
+          linear-gradient(130deg, rgba(47, 111, 255, 0.16), rgba(210, 160, 75, 0.08));
+        box-shadow: var(--shadow);
+      }
+
+      .community-box p {
+        color: var(--muted);
+        margin: 10px auto 20px;
+        max-width: 700px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 34px 0 44px;
+        color: #909ab8;
+        font-size: 0.92rem;
+      }
+
+      /* ==============================
+         Mobile
+         ============================== */
+      @media (max-width: 860px) {
+        .section {
+          padding: 52px 0;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .brand-logo {
+          width: 78px;
+          height: 78px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="brand">
+          <!--
+            Logo da marca:
+            - Salve a imagem enviada como "logo-suportbtwin.png" na mesma pasta deste arquivo.
+            - Se quiser trocar nome/local, ajuste o src abaixo.
+          -->
+          <img class="brand-logo" src="logo-suportbtwin.png" alt="Logo SuportBTWin" />
+          <div class="brand-name"><span>SuportBTWin</span></div>
+          <p class="brand-tagline">Suporte Mestre | Macro &gt; Mecânica</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Suba de elo jogando suporte com macro, não mecânica</h1>
+          <p>
+            Método direto para suporte: visão de mapa, decisões de roam, wave state e tempo de objetivo
+            para transformar consistência em vitórias.
+          </p>
+          <a href="#produtos" class="btn btn-primary">Ver produtos</a>
+        </div>
+      </section>
+
+      <section id="produtos" class="section">
+        <div class="container">
+          <h2 class="section-title">Produtos para subir de elo com inteligência</h2>
+          <p class="section-subtitle">
+            Conteúdo rápido de aplicar para você entender o que fazer em cada momento da partida.
+          </p>
+
+          <div class="cards">
+            <article class="card">
+              <h3>Planilha de Matchups</h3>
+              <p class="price">R$19</p>
+              <p>Saiba exatamente como jogar cada lane.</p>
+              <a href="#" class="btn btn-primary">Acesso imediato</a>
+            </article>
+
+            <article class="card">
+              <h3>Análise de Partida</h3>
+              <p>Descubra onde você está errando no jogo.</p>
+              <a href="#" class="btn btn-outline">Solicitar análise</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Prova social</h2>
+          <ul class="feedback-list">
+            <li>“a planilha ajudou mt!”</li>
+            <li>“me ajudou a enxergar melhor o jogo”</li>
+            <li>“já comecei a subir depois das dicas”</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="community-box">
+            <h2 class="section-title">Entre para a comunidade no Discord</h2>
+            <p>
+              Receba dicas práticas, updates dos materiais e troca direta com outros suportes focados
+              em macro e evolução contínua.
+            </p>
+            <a href="#" class="btn btn-primary">Entrar no Discord</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 SuportBTWin. Todos os direitos reservados.</footer>
+  </body>
+</html>
